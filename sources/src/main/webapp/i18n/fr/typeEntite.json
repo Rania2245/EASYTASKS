@@ -1,0 +1,10 @@
+{
+  "easyTaskApp": {
+    "TypeEntite": {
+      "null": "",
+      "Projet": "Projet",
+      "Livrable": "Livrable",
+      "Activite": "Activite"
+    }
+  }
+}

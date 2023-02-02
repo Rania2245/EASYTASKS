@@ -1,0 +1,43 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126085355",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "client",
+  "fields": [
+    {
+      "fieldName": "refClient",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Client",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "projet",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "projet",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

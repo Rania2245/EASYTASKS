@@ -1,0 +1,28 @@
+{
+  "easyTaskApp": {
+    "chargeJournaliere": {
+      "home": {
+        "title": "Charge Journalieres",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Charge Journaliere",
+        "createOrEditLabel": "Create or edit a Charge Journaliere",
+        "notFound": "No Charge Journalieres found"
+      },
+      "created": "A new Charge Journaliere is created with identifier {{ param }}",
+      "updated": "A Charge Journaliere is updated with identifier {{ param }}",
+      "deleted": "A Charge Journaliere is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Charge Journaliere {{ id }}?"
+      },
+      "detail": {
+        "title": "Charge Journaliere"
+      },
+      "id": "Id",
+      "date": "Date",
+      "type": "Type",
+      "duree": "Duree",
+      "description": "Description",
+      "ressource": "Ressource"
+    }
+  }
+}

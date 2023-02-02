@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="livrable">
+      <h2 data-cy="livrableDetailsHeading"><span jhiTranslate="easyTaskApp.livrable.detail.title">Livrable</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ livrable.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.refLivrable">Ref Livrable</span></dt>
+        <dd>
+          <span>{{ livrable.refLivrable }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.dateDebut">Date Debut</span></dt>
+        <dd>
+          <span>{{ livrable.dateDebut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.dateFin">Date Fin</span></dt>
+        <dd>
+          <span>{{ livrable.dateFin | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.description">Description</span></dt>
+        <dd>
+          <span>{{ livrable.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.etat">Etat</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'easyTaskApp.Etat.' + livrable.etat }}">{{ livrable.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.livrable.projet">Projet</span></dt>
+        <dd>
+          <div *ngIf="livrable.projet">
+            <a [routerLink]="['/projet', livrable.projet.id, 'view']">{{ livrable.projet.refProjet }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/livrable', livrable.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

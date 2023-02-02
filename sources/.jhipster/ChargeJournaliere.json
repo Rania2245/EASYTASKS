@@ -1,0 +1,46 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126084755",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "charge_journaliere",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeCharge",
+      "fieldValues": "Support,Dev,Autres"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ChargeJournaliere",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "ressource",
+      "otherEntityRelationshipName": "chargeJournaliere",
+      "relationshipName": "ressource",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

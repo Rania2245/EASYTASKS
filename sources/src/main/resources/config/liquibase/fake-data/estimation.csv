@@ -1,0 +1,11 @@
+id;date;valeur_jour;valeur_heure;prise_en_charge;type
+ac1a6623-a23c-46d0-bfae-d6b5a8afee9c;2023-01-25;92878;73989;false;Projet
+afd89b35-e1c0-41ef-ad82-6f80d27ec14f;2023-01-25;65950;9499;true;Projet
+ca436faf-2fa7-48fc-abf1-a6d3cb1ca7b8;2023-01-25;78105;88604;true;Activite
+3d4e6d8f-6a56-4016-8039-969ded743a3e;2023-01-25;7392;24165;true;Projet
+dfcff570-e7a8-4f23-a9ee-e3c7c134a0e7;2023-01-25;88211;40011;false;Activite
+01e0396e-e80b-498e-ba4e-9e40873d1a25;2023-01-26;45066;97413;false;Livrable
+bce16ea3-8d2a-4ded-86bf-cd7432649196;2023-01-26;53881;84370;false;Projet
+eefbd3a4-ebc8-4b0d-8fa2-ae5c67243e18;2023-01-25;3910;43238;true;Livrable
+fe7c9fef-2e69-4599-8a8c-619a67c882c4;2023-01-26;86040;48506;false;Projet
+84cf3c59-9c97-4200-ac40-22123101e152;2023-01-25;97299;97674;true;Livrable

@@ -1,0 +1,60 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126085055",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activite",
+  "fields": [
+    {
+      "fieldName": "refAct",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "raf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldValues": "Planifier,EnCours,Termine"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Activite",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estimation",
+      "otherEntityRelationshipName": "activite",
+      "relationshipName": "estimation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "refLivrable",
+      "otherEntityName": "livrable",
+      "otherEntityRelationshipName": "activite",
+      "relationshipName": "livrable",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

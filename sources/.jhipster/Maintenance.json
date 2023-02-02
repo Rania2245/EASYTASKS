@@ -1,0 +1,60 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126085155",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "maintenance",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "produit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "solution",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldValues": "Planifier,EnCours,Termine"
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Maintenance",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "ressource",
+      "otherEntityRelationshipName": "maintenance",
+      "relationshipName": "ressource",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,31 @@
+{
+  "easyTaskApp": {
+    "livrable": {
+      "home": {
+        "title": "Livrables",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Livrable",
+        "createOrEditLabel": "Create or edit a Livrable",
+        "notFound": "No Livrables found"
+      },
+      "created": "A new Livrable is created with identifier {{ param }}",
+      "updated": "A Livrable is updated with identifier {{ param }}",
+      "deleted": "A Livrable is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Livrable {{ id }}?"
+      },
+      "detail": {
+        "title": "Livrable"
+      },
+      "id": "ID",
+      "refLivrable": "Ref Livrable",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "description": "Description",
+      "etat": "Etat",
+      "activite": "Activite",
+      "estimation": "Estimation",
+      "projet": "Projet"
+    }
+  }
+}

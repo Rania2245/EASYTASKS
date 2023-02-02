@@ -1,0 +1,115 @@
+application{
+  config {
+    packageName tn.itdevspace.easytask
+    baseName easyTask
+    applicationType monolith
+    databaseType sql
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    authenticationType jwt
+    clientFramework angularX
+    languages [fr]
+   
+  }
+  entities *
+}
+entity ChargeJournaliere {
+    id UUID, 
+	date LocalDate, 
+    type TypeCharge , 
+    duree Double , 
+    description String , 
+
+}
+enum TypeCharge {
+Support , Dev , Autres
+}
+
+
+entity Projet{
+	refProjet String required maxlength(20) unique,
+    type Type required  , 
+    description String required , 
+    datedebut LocalDate required, 
+    datefin LocalDate , 
+    etat Etat , 
+}
+enum Type {
+   Interne , Externe
+}
+enum Etat{
+Planifier, EnCours  , Termine
+}
+
+
+entity Livrable{
+    refLivrable String required maxlength(20) unique , 
+    dateDebut LocalDate required, 
+    dateFin LocalDate, 
+    description String required, 
+    etat Etat, 
+
+}
+
+entity Activite{
+ refAct String required maxlength(20) unique, 
+description String required ,
+dateDebut  LocalDate required , 
+dateFin  LocalDate, 
+raf String , 
+etat Etat, 
+
+}
+
+entity Maintenance {
+id UUID, 
+description String required ,
+produit String , 
+solution String , 
+etat Etat, 
+dateDebut  LocalDate required, 
+dateFin  LocalDate, 
+duree Double, 
+}
+
+
+entity Ressource {
+    id UUID, 
+	nom String required ,
+	prenom String required, 
+      
+}
+ 
+entity Client  { 
+	refClient String required maxlength(20) unique,
+    nom String required ,
+	prenom String required , 
+	contact String, 
+      
+}
+
+
+entity Estimation {
+id UUID,
+date LocalDate,
+valeurJour Double,
+valeurHeure Double, 
+priseEnCharge Boolean,
+type TypeEntite,
+}
+enum TypeEntite{
+Projet , Livrable , Activite
+}
+
+
+
+relationship OneToMany {
+    Projet to Livrable { projet(refProjet) required}
+    Livrable to Activite {livrable(refLivrable) required }
+    Ressource to Maintenance { ressource(nom) required }
+	Ressource to  ChargeJournaliere{ ressource(nom) required}
+    Client to Projet { client (nom) required}
+    Activite to Estimation { activite (refAct)}
+    Projet to Estimation{projet(refProjet)}
+    Livrable to Estimation{livrable (refLivrable)}
+}

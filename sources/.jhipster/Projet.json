@@ -1,0 +1,68 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126084855",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "projet",
+  "fields": [
+    {
+      "fieldName": "refProjet",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "Type",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Interne,Externe"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "datedebut",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "datefin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldValues": "Planifier,EnCours,Termine"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Projet",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "livrable",
+      "otherEntityRelationshipName": "projet",
+      "relationshipName": "livrable",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "estimation",
+      "otherEntityRelationshipName": "projet",
+      "relationshipName": "estimation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "projet",
+      "relationshipName": "client",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

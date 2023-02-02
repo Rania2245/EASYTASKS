@@ -1,0 +1,31 @@
+{
+  "easyTaskApp": {
+    "estimation": {
+      "home": {
+        "title": "Estimations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Estimation",
+        "createOrEditLabel": "Create or edit a Estimation",
+        "notFound": "No Estimations found"
+      },
+      "created": "A new Estimation is created with identifier {{ param }}",
+      "updated": "A Estimation is updated with identifier {{ param }}",
+      "deleted": "A Estimation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Estimation {{ id }}?"
+      },
+      "detail": {
+        "title": "Estimation"
+      },
+      "id": "Id",
+      "date": "Date",
+      "valeurJour": "Valeur Jour",
+      "valeurHeure": "Valeur Heure",
+      "priseEnCharge": "Prise En Charge",
+      "type": "Type",
+      "activite": "Activite",
+      "projet": "Projet",
+      "livrable": "Livrable"
+    }
+  }
+}

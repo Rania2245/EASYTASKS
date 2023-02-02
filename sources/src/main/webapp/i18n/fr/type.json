@@ -1,0 +1,9 @@
+{
+  "easyTaskApp": {
+    "Type": {
+      "null": "",
+      "Interne": "Interne",
+      "Externe": "Externe"
+    }
+  }
+}

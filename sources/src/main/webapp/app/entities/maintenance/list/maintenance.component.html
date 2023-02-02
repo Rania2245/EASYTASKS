@@ -1,0 +1,141 @@
+<div>
+  <h2 id="page-heading" data-cy="MaintenanceHeading">
+    <span jhiTranslate="easyTaskApp.maintenance.home.title">Maintenances</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="easyTaskApp.maintenance.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-maintenance"
+        [routerLink]="['/maintenance/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="easyTaskApp.maintenance.home.createLabel"> Create a new Maintenance </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="maintenances?.length === 0">
+    <span jhiTranslate="easyTaskApp.maintenance.home.notFound">No Maintenances found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="maintenances && maintenances.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="produit">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.produit">Produit</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="solution">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.solution">Solution</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="etat">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.etat">Etat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateDebut">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.dateDebut">Date Debut</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateFin">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.dateFin">Date Fin</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="duree">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.duree">Duree</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ressource.nom">
+            <div class="d-flex">
+              <span jhiTranslate="easyTaskApp.maintenance.ressource">Ressource</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let maintenance of maintenances; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/maintenance', maintenance.id, 'view']">{{ maintenance.id }}</a>
+          </td>
+          <td>{{ maintenance.description }}</td>
+          <td>{{ maintenance.produit }}</td>
+          <td>{{ maintenance.solution }}</td>
+          <td jhiTranslate="{{ 'easyTaskApp.Etat.' + maintenance.etat }}">{{ maintenance.etat }}</td>
+          <td>{{ maintenance.dateDebut | formatMediumDate }}</td>
+          <td>{{ maintenance.dateFin | formatMediumDate }}</td>
+          <td>{{ maintenance.duree }}</td>
+          <td>
+            <div *ngIf="maintenance.ressource">
+              <a [routerLink]="['/ressource', maintenance.ressource.id, 'view']">{{ maintenance.ressource.nom }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/maintenance', maintenance.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/maintenance', maintenance.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(maintenance)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

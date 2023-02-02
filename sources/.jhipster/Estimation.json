@@ -1,0 +1,63 @@
+{
+  "applications": ["easyTask"],
+  "changelogDate": "20230126085455",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "estimation",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "valeurJour",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valeurHeure",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "priseEnCharge",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeEntite",
+      "fieldValues": "Projet,Livrable,Activite"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Estimation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "refAct",
+      "otherEntityName": "activite",
+      "otherEntityRelationshipName": "estimation",
+      "relationshipName": "activite",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "refProjet",
+      "otherEntityName": "projet",
+      "otherEntityRelationshipName": "estimation",
+      "relationshipName": "projet",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "refLivrable",
+      "otherEntityName": "livrable",
+      "otherEntityRelationshipName": "estimation",
+      "relationshipName": "livrable",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

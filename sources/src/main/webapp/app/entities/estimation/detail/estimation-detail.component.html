@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="estimation">
+      <h2 data-cy="estimationDetailsHeading"><span jhiTranslate="easyTaskApp.estimation.detail.title">Estimation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="easyTaskApp.estimation.id">Id</span></dt>
+        <dd>
+          <span>{{ estimation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.date">Date</span></dt>
+        <dd>
+          <span>{{ estimation.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.valeurJour">Valeur Jour</span></dt>
+        <dd>
+          <span>{{ estimation.valeurJour }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.valeurHeure">Valeur Heure</span></dt>
+        <dd>
+          <span>{{ estimation.valeurHeure }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.priseEnCharge">Prise En Charge</span></dt>
+        <dd>
+          <span>{{ estimation.priseEnCharge }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'easyTaskApp.TypeEntite.' + estimation.type }}">{{ estimation.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.activite">Activite</span></dt>
+        <dd>
+          <div *ngIf="estimation.activite">
+            <a [routerLink]="['/activite', estimation.activite.id, 'view']">{{ estimation.activite.refAct }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.projet">Projet</span></dt>
+        <dd>
+          <div *ngIf="estimation.projet">
+            <a [routerLink]="['/projet', estimation.projet.id, 'view']">{{ estimation.projet.refProjet }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="easyTaskApp.estimation.livrable">Livrable</span></dt>
+        <dd>
+          <div *ngIf="estimation.livrable">
+            <a [routerLink]="['/livrable', estimation.livrable.id, 'view']">{{ estimation.livrable.refLivrable }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/estimation', estimation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
